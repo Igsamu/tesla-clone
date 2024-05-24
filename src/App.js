@@ -28,17 +28,15 @@ import accessoriesDesktop from './media/Homepage-Accessories-Desktop-EMEA.avif';
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth > 724);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
-  const isDesktop = screenWidth >= 724;
-
   useEffect(() => {
     const handleResize = () => {
-      setScreenWidth(window.innerWidth);
+      setIsDesktop(window.innerWidth > 724);
     };
     window.addEventListener('resize', handleResize);
     return () => {
