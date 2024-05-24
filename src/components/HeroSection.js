@@ -2,7 +2,6 @@ import React from 'react';
 import './HeroSection.css';
 
 const HeroSection = ({ title, subtitle, imgSrc, videoSrc, buttons }) => {
-
   return (
     <section className="hero">
       <div className="selection">
@@ -10,10 +9,14 @@ const HeroSection = ({ title, subtitle, imgSrc, videoSrc, buttons }) => {
         {subtitle && <p>{subtitle}</p>}
       </div>
       <div className="image">
-        {imgSrc ? <img src={imgSrc} alt={title} /> : <video autoPlay muted loop>
-          <source src={videoSrc} type="video/webm" />
-          Tu navegador no soporta la reproducción de videos.
-        </video>}
+        {imgSrc ? (
+          <img src={imgSrc} alt={title} />
+        ) : (
+          <video autoPlay muted loop>
+            <source src={videoSrc} type="video/webm" />
+            Tu navegador no soporta la reproducción de videos.
+          </video>
+        )}
       </div>
       <div className="buttons">
         {buttons.map((button, index) => (

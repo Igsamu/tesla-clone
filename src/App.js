@@ -34,6 +34,8 @@ function App() {
     setMenuOpen(!menuOpen);
   };
 
+  const isDesktop = screenWidth >= 724;
+
   useEffect(() => {
     const handleResize = () => {
       setScreenWidth(window.innerWidth);
@@ -44,14 +46,12 @@ function App() {
     };
   }, []);
 
-  const isDesktop = screenWidth > 724;
-
   return (
     <div className="App">
       <Header toggleMenu={toggleMenu} />
       <MenuList isOpen={menuOpen} toggleMenu={toggleMenu} />
-      <main>  
-      <HeroSection
+      <main>
+        <HeroSection
           title="Model Y"
           imgSrc={isDesktop ? modelYDesktop : modelYMobile}
           buttons={[
@@ -59,49 +59,49 @@ function App() {
             { className: 'test-drive', text: 'Prueba de conducción' },
           ]}
         />
-        <HeroSection 
+        <HeroSection
           title="Model 3"
-          imgSrc={isDesktop ? model3Desktop : model3Mobile} 
+          imgSrc={isDesktop ? model3Desktop : model3Mobile}
           buttons={[
             { className: 'order', text: 'Encargar' },
             { className: 'test-drive', text: 'Prueba de conducción' },
           ]}
         />
-        <HeroSection 
+        <HeroSection
           title="Model S"
-          imgSrc={isDesktop ? modelSDesktop : modelSMobile} 
+          imgSrc={isDesktop ? modelSDesktop : modelSMobile}
           buttons={[
             { className: 'order', text: 'Encargar' },
             { className: 'test-drive', text: 'Prueba de conducción' },
           ]}
         />
-        <HeroSection 
+        <HeroSection
           title="Model X"
-          imgSrc={isDesktop ? modelXDesktop : modelXMobile} 
+          imgSrc={isDesktop ? modelXDesktop : modelXMobile}
           buttons={[
             { className: 'order', text: 'Encargar' },
             { className: 'test-drive', text: 'Prueba de conducción' },
           ]}
         />
-        <HeroSection 
+        <HeroSection
           title="Disfrute de Tesla"
           subtitle="Programe una prueba de conducción hoy mismo"
-          videoSrc={isDesktop ? demoDriveDesktop : demoDriveMobile} 
+          videoSrc={isDesktop ? demoDriveDesktop : demoDriveMobile}
           buttons={[
             { className: 'test-drive-d', text: 'Prueba de conducción' },
           ]}
         />
-        <HeroSection 
+        <HeroSection
           title="Solar y Powerwall"
           subtitle="Energía para todos"
-          imgSrc={isDesktop ? solarPanelsDesktop : solarPanelsMobile} 
+          imgSrc={isDesktop ? solarPanelsDesktop : solarPanelsMobile}
           buttons={[
             { className: 'order', text: 'Saber más' },
           ]}
         />
-        <HeroSection 
+        <HeroSection
           title="Accesorios"
-          imgSrc={isDesktop ? accessoriesDesktop : accessoriesMobile} 
+          imgSrc={isDesktop ? accessoriesDesktop : accessoriesMobile}
           buttons={[
             { className: 'test-drive', text: 'Comprar' },
           ]}
