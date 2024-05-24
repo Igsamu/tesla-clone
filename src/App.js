@@ -18,7 +18,7 @@ import modelXMobile from './media/Homepage-Model-X-Mobile.avif';
 import modelXDesktop from './media/Homepage-Model-X-Desktop.avif';
 
 import demoDriveMobile from './media/Homepage-Demo-Drive-Mobile-NA.webm';
-import demoDriveDesktop from './media/Homepage-Demo-Drive-Desktop-Poster-NA.avif';
+import demoDriveDesktop from './media/Homepage-Demo-Drive-Desktop-NA.webm';
 
 import solarPanelsMobile from './media/SolarPanels-Mobile.avif';
 import solarPanelsDesktop from './media/SolarPanels-Desktop.avif';
@@ -86,7 +86,7 @@ function App() {
         <HeroSection 
           title="Disfrute de Tesla"
           subtitle="Programe una prueba de conducción hoy mismo"
-          imgSrc={isDesktop ? demoDriveDesktop : demoDriveMobile} 
+          videoSrc={isDesktop ? demoDriveDesktop : demoDriveMobile} 
           buttons={[
             { className: 'test-drive-d', text: 'Prueba de conducción' },
           ]}

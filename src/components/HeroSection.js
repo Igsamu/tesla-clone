@@ -2,6 +2,7 @@ import React from 'react';
 import './HeroSection.css';
 
 const HeroSection = ({ title, subtitle, imgSrc, videoSrc, buttons }) => {
+
   return (
     <section className="hero">
       <div className="selection">
@@ -10,7 +11,7 @@ const HeroSection = ({ title, subtitle, imgSrc, videoSrc, buttons }) => {
       </div>
       <div className="image">
         {imgSrc ? <img src={imgSrc} alt={title} /> : <video autoPlay muted loop>
-          <source src={videoSrc} type="video/mp4" />
+          <source src={videoSrc} type="video/webm" />
           Tu navegador no soporta la reproducción de videos.
         </video>}
       </div>
