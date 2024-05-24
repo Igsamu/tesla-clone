@@ -1,0 +1,100 @@
+.hero {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding-top: 80px;
+  }
+  
+  .hero .image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+  
+  .hero img, .hero video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .selection {
+    position: absolute;
+    top: 100px;
+    z-index: 2;
+    font-size: 2em;
+    color: #000000;
+    text-align: center;
+  }
+  
+  .selection h3 {
+    color: white;
+    margin: 0;
+  }
+  
+  .selection p {
+    color: white;
+    font-size: 15px;
+    margin-top: 10px;
+  }
+  
+  .buttons {
+    position: absolute;
+    bottom: 20px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    margin-bottom: 30px;
+  }
+  
+  .buttons button, .buttons a {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .buttons a {
+    color: #000;
+    font-size: 0.8em;
+    font-weight: bold;
+  }
+  
+  .buttons button.order, .buttons button.test-drive, .buttons button.test-drive-d, .buttons button.order-m3 {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    margin-bottom: 20px;
+  }
+  
+  .buttons button.order, .buttons button.order-m3 {
+    background-color: #333;
+    color: white;
+  }
+  
+  .buttons button.test-drive, .buttons button.test-drive-m3, .buttons button.test-drive-d {
+    background-color: #ffffff;
+  }
+  
+  .buttons button.test-drive-d {
+    background: transparent;
+    color: white;
+    border: 2px solid #fff;
+  }
+  
