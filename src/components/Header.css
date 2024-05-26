@@ -1,78 +1,77 @@
 header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    padding: 20px 0;
-    z-index: 1000;
-  }
-  
-  nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 auto;
-  }
-  
-  .logo img {
-    height: 15px;
-    margin-left: 10px;
-  }
-  
-  .menu {
-    font-family: 'Gotham', sans-serif;
-    border: none;
-    font-size: 1em;
-    width: 80px;
-    height: 30px;
-    background-color: rgb(211, 201, 249);
-  }
-  
-  .desktop-menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 20px 0;
+  z-index: 1000;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.logo img {
+  height: 15px;
+  margin-left: 10px;
+}
+
+.menu {
+  font-family: 'Gotham', sans-serif;
+  border: none;
+  font-size: 1em;
+  width: 80px;
+  height: 30px;
+  background-color: rgb(211, 201, 249);
+}
+
+.desktop-menu {
+  display: none;
+}
+
+.desk-but {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.desktop-button {
+  display: block;
+  padding: 10px 20px;
+  margin: 0 10px 10px 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.desk-button:hover {
+  background-color: azure;
+}
+
+.logos {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.logos img {
+  margin-left: 10px;
+  width: 20px;
+}
+
+@media only screen and (min-width: 1024px) {
+  .menulistdiv, .menuBut, .overlay, .menu {
     display: none;
   }
-  
-  .desk-but {
+
+  .desktop-menu {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin-top: 10px;
-    width: 100%;
+    position: absolute;
   }
-  
-  .desktop-button {
-    display: block;
-    padding: 10px 20px;
-    margin: 0 10px 10px 0;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .desk-button:hover {
-    background-color: azure;
-  }
-  
-  .logos {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-  }
-  
-  .logos img {
-    margin-left: 10px;
-    width: 20px;
-  }
-  
-  @media only screen and (min-width: 1024px) {
-    .menulistdiv, .menuBut, .overlay, .menu {
-      display: none;
-    }
-  
-    .desktop-menu {
-      display: flex;
-      position: absolute;
-    }
-  }
-  
+}
