@@ -1,10 +1,44 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './MenuList.css';
 import sitioWeb from '../media/sitio-web.png';
 import usuario from '../media/usuario.png';
 import { Arrow } from './Components.js';
 
+import question from '../media/informacion.png'
+import net from '../media/sitio-web.png'
+import user from '../media/usuario.png'
+
 const MenuList = ({ toggleMenu, isOpen }) => {
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= 768);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  if (isDesktop) {
+    return (
+        <div className="desktop-menu">
+          <div className="desk-but">
+              <button className="desktop-button">Vehículos</button>
+              <button className="desktop-button">Energía</button>
+              <button className="desktop-button">Carga</button>
+              <button className="desktop-button">Descubrir</button>
+              <button className="desktop-button">Tienda</button>
+          </div>
+        <div className="logos">
+            <button className="imgButton"><img src={question} alt='informacion'/></button>
+            <button className="imgButton"><img src={net} alt='web'/></button>
+            <button className="imgButton"><img src={user} alt='usuario'/></button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className={`menulistdiv ${isOpen ? 'open' : ''}`} id="menuListDiv">
