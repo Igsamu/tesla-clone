@@ -33,6 +33,9 @@ const HeroSection = ({ title, subtitle, imgSrc, videoSrc, buttons }) => {
           <button key={index} className={button.className}>{button.text}</button>
         ))}
       </div>
+      <div className='moveslink'>
+        
+      </div>
     </section>
   );
 };

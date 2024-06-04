@@ -3,7 +3,6 @@ import './App.css';
 import Header from './components/Header';
 import HeroSection from './components/HeroSection';
 import Footer from './components/Footer';
-import MenuList from './components/MenuList';
 
 import modelYMobile from './media/Homepage-Model-Y-Mobile-Global.avif';
 import modelYDesktop from './media/Homepage-Model-Y-Desktop-Global.avif';
@@ -27,12 +26,7 @@ import accessoriesMobile from './media/Homepage-Accessories-Mobile-EMEA.avif';
 import accessoriesDesktop from './media/Homepage-Accessories-Desktop-EMEA.avif';
 
 function App() {
-  const [menuOpen, setMenuOpen] = useState(false);
   const [isDesktop, setIsDesktop] = useState(window.innerWidth > 724);
-
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -46,8 +40,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header toggleMenu={toggleMenu} />
-      <MenuList isOpen={menuOpen} toggleMenu={toggleMenu} />
+      <Header />
       <main>
         <HeroSection
           title="Model Y"

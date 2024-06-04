@@ -1,5 +1,5 @@
 header {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -11,6 +11,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 95%;
   margin: 0 auto;
 }
 
@@ -34,30 +35,46 @@ nav {
 
 .desk-but {
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin-top: 10px;
-  width: 100%;
+  flex-grow: 1;
 }
 
 .desktop-button {
-  display: block;
-  padding: 10px 20px;
-  margin: 0 10px 10px 0;
+  padding: 10px 5px;
+  margin: 0 5px;
+  width: 80px;
+  border-radius: 5%;
   background-color: transparent;
   border: none;
   cursor: pointer;
+  transition: background-color 0.5s;
 }
 
-.desk-button:hover {
-  background-color: azure;
+.desktop-button:hover {
+  background-color: #CFCFCF;
 }
 
 .logos {
   display: flex;
-  justify-content: flex-end;
   align-items: center;
+}
+
+.logos button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border: none;
+  width: 35px;
+  border-radius: 5%;
+  cursor: pointer;
+  padding: 5px;
+  transition: background-color 0.5s;
+}
+
+.loggos button:hover {
+  background-color: #CFCFCF;
 }
 
 .logos img {
@@ -72,6 +89,8 @@ nav {
 
   .desktop-menu {
     display: flex;
-    position: absolute;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
   }
 }
