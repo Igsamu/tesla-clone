@@ -8,12 +8,28 @@ import net from '../media/sitio-web.png';
 import user from '../media/usuario.png';
 import { Arrow } from './Components.js';
 
+import models from '../media/Mega-Menu-Vehicles-Model-S.avif';
+import model3 from '../media/Mega-Menu-Vehicles-Model-3-Performance-LHD.avif';
+import modelx from '../media/Mega-Menu-Vehicles-Model-X.avif';
+import modely from '../media/Mega-Menu-Vehicles-Model-Y.avif';
+import cybertruck from '../media/Mega-Menu-Vehicles-Cybertruck-1x.avif';
+import doubleCar from '../media/Mega-Menu-Vehicles-HMC-RedBlue-EMEA.avif';
+
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
+  const [isPanelOpen, setIsPanelOpen] = useState(false);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
+  };
+
+  const handleMouseEnter = () => {
+    setIsPanelOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsPanelOpen(false);
   };
 
   useEffect(() => {
@@ -27,7 +43,7 @@ const Header = () => {
   }, []);
 
   return (
-    <header>
+    <header className={isPanelOpen ? 'white-background' : ''}>
       <nav>
         <a href="logo" className="logo">
           <img src={logo} alt="Tesla Logo" />
@@ -35,11 +51,114 @@ const Header = () => {
         {isDesktop ? (
           <>
             <div className="desktop-menu">
-              <button className="desktop-button">Vehículos</button>
-              <button className="desktop-button">Energía</button>
-              <button className="desktop-button">Carga</button>
-              <button className="desktop-button">Descubrir</button>
-              <button className="desktop-button">Tienda</button>
+              <button className="desktop-button" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>Vehículos</button>
+              {isPanelOpen && (
+                <div className="panel-blanco" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                  <div className="panel-content">
+                    <div className='leftPanel'>
+                      <div className='car-button'>
+                        <button className="panel-button">
+                          <img src={models} alt='models'/>
+                        </button>
+                        <p>Model S</p>
+                        <div className='abuttons'>
+                          <a href='#'>Saber más</a>
+                          <a href='#'>Pedir</a>
+                        </div>
+                      </div>
+                      <div className='car-button'>
+                        <button className="panel-button">
+                          <img src={model3} alt='model3'/>
+                        </button>
+                        <p>Model 3</p>
+                        <div className='abuttons'>
+                          <a href='#'>Saber más</a>
+                          <a href='#'>Pedir</a>
+                        </div>
+                      </div>
+                      <div className='car-button'>
+                        <button className="panel-button">
+                          <img src={modelx} alt='modelx'/>
+                        </button>
+                        <p>Model X</p>
+                        <div className='abuttons'>
+                          <a href='#'>Saber más</a>
+                          <a href='#'>Pedir</a>
+                        </div>
+                      </div>
+                      <div className='car-button'>
+                        <button className="panel-button">
+                          <img src={modely} alt='modely'/>
+                        </button>
+                        <p>Model Y</p>
+                        <div className='abuttons'>
+                          <a href='#'>Saber más</a>
+                          <a href='#'>Pedir</a>
+                        </div>
+                      </div>
+                      <div className='car-button'>
+                        <button className="panel-button">
+                          <img src={cybertruck} alt='cybertruck'/>
+                        </button>
+                        <p>Cybertruck</p>
+                        <div className='abuttons'>
+                          <a href='#'>Saber más</a>
+                        </div>
+                      </div>
+                      <div className='car-button'>
+                        <button className="panel-button">
+                          <img src={doubleCar} alt='doubleCar'/>
+                        </button>
+                        <p>Necesito ayuda para elegir</p>
+                        <div className='abuttons'>
+                          <a href='#'>Comenzar</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div className='vline'></div>
+                    <div className='rightPanel'>
+                      <a href='#'>Prueba de conducción</a>
+                      <a href='#'>Tasación</a>
+                      <a href='#'>Vehículos preconfigurados</a>
+                      <a href='#'>Ocasión</a>
+                      <a href='#'>Coche de empresa</a>
+                      <a href='#'>Roadster</a>
+                    </div>
+                  </div>
+                </div>
+              )}
+              <button className="desktop-button" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>Energía</button>
+              <div className="panel-blanco">
+                <div className="panel-content">
+                  <button className="panel-button">Sub opción 1</button>
+                  <button className="panel-button">Sub opción 2</button>
+                  <button className="panel-button">Sub opción 3</button>
+                </div>
+              </div>
+              <button className="desktop-button" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>Carga</button>
+              <div className="panel-blanco">
+                <div className="panel-content">
+                  <button className="panel-button">Sub opción 1</button>
+                  <button className="panel-button">Sub opción 2</button>
+                  <button className="panel-button">Sub opción 3</button>
+                </div>
+              </div>
+              <button className="desktop-button" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>Descubrir</button>
+              <div className="panel-blanco">
+                <div className="panel-content">
+                  <button className="panel-button">Sub opción 1</button>
+                  <button className="panel-button">Sub opción 2</button>
+                  <button className="panel-button">Sub opción 3</button>
+                </div>
+              </div>
+              <button className="desktop-button" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>Tienda</button>
+              <div className="panel-blanco">
+                <div className="panel-content">
+                  <button className="panel-button">Sub opción 1</button>
+                  <button className="panel-button">Sub opción 2</button>
+                  <button className="panel-button">Sub opción 3</button>
+                </div>
+              </div>
             </div>
             <div className="logos">
               <button className="imgButton"><img src={question} alt='informacion'/></button>
