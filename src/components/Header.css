@@ -1,4 +1,7 @@
-/* Estilos generales */
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
 header {
   position: absolute;
   top: 0;
@@ -36,11 +39,14 @@ nav {
 .desktop-button {
   padding: 10px 5px;
   margin: 0;
-  width: 80px;
+  width: 70px;
   border-radius: 5%;
   background-color: transparent;
   border: none;
   cursor: pointer;
+  font-size: 0.7em;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
   transition: background-color 0.5s;
 }
 
@@ -75,7 +81,7 @@ nav {
 }
 
 /* Estilo para el panel blanco */
-.panel-blanco {
+.panel-blanco, .panel2 {
   position: absolute;
   top: 60px;
   left: 0;
@@ -88,21 +94,30 @@ nav {
   justify-content: center;
   align-items: center;
   z-index: 999;
-  transition: height 0.3s ease-out;
+  transition: height 0.5s ease-out;
 }
 
 /* Mostrar el panel cuando se activa */
 .desktop-button:hover + .panel-blanco,
 .panel-blanco:hover {
   height: 50vh;
+  transition: height 0.5s ease-out;
 }
+
+/* Mostrar el panel de energía cuando se activa */
+.desktop-button:hover + .panel2,
+.panel2:hover {
+  height: 35vh;
+  transition: height 0.5s ease-out;
+}
+
 
 /* Estilo para los botones dentro del panel */
 .panel-content {
   display: flex;
-  justify-content: space-evenly;
-  margin-top: 60px;
-  width: 90%;
+  justify-content: center;
+  margin-top: 0;
+  width: 100%;
 }
 
 .leftPanel {
@@ -110,6 +125,12 @@ nav {
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
   max-width: 50%;
+  margin-right: 3%;
+}
+
+.leftPanel2 {
+  display: flex;
+  flex-direction: row;
 }
 
 .car-button {
@@ -117,9 +138,14 @@ nav {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 180px;
-  width: 200px;
+  height: 130px;
+  width: 180px;
   margin: 0;
+}
+
+.car-button p, .imageButton p {
+  font-size: 0.9rem;
+  font-weight: bold;
 }
 
 .car-button img {
@@ -128,9 +154,28 @@ nav {
   margin-top: -90px;
 }
 
+.imageButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 130px;
+  width: 190px;
+  margin: 0;
+  margin-top: 30px;
+  margin-left: 40px;
+}
+
+.imageButton img {
+  width: 100%;
+  margin-bottom: -10px;
+  margin-top: -90px;
+}
+
 .abuttons {
   align-items: center;
   margin-top: -10px;
+  margin-right: 15px;
 }
 
 .abuttons a {
@@ -144,11 +189,13 @@ nav {
   flex-direction: column;
   justify-content: flex-start;
   text-align: left;
+  margin-left: 3%;
 }
 
 .rightPanel a {
   margin-bottom: 10px;
   color: #000;
+  font-size: 0.8em;
   text-decoration: none;
   transition: text-decoration 0.5s ease-out;
 }
@@ -165,14 +212,38 @@ nav {
 }
 
 .vline {
-  width: 5px;
-  height: 310px;
-  background-color: gray; 
-  margin: 0;
+  width: 1px;
+  height: 250px;
+  background-color: #B9B9B9;
+}
+
+.vline2 {
+  width: 1px;
+  height: 150px;
+  background-color: #B9B9B9;
+  margin-left: 40px;
 }
 
 header.white-background {
   background-color: white;
+}
+
+.panela {
+  display: flex;
+  flex-direction: column;
+  margin-left: 80px;
+}
+
+.panela p{
+  color: #B9B9B9;
+}
+
+.panela a{
+  margin-bottom: 10px;
+  color: #000;
+  font-size: 0.8rem;
+  text-decoration: none;
+  transition: text-decoration 0.5s ease-out;
 }
 
 /* Estilos para dispositivos móviles */

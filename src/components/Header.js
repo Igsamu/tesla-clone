@@ -14,11 +14,20 @@ import modelx from '../media/Mega-Menu-Vehicles-Model-X.avif';
 import modely from '../media/Mega-Menu-Vehicles-Model-Y.avif';
 import cybertruck from '../media/Mega-Menu-Vehicles-Cybertruck-1x.avif';
 import doubleCar from '../media/Mega-Menu-Vehicles-HMC-RedBlue-EMEA.avif';
+import powerwall from '../media/Mega-Menu-Energy-Powerwall-Global.avif';
+import megapack from '../media/Mega-Menu-Energy-Megapack.avif';
+import charge from '../media/Mega-Menu-Charging-Charging-Global.avif';
+import homeCharge from '../media/Mega-Menu-Charging-Home-Charging-Global.avif';
+import highCharge from '../media/Mega-Menu-Charging-Supercharging-EMEA.avif';
+import weel from '../media/Mega-Menu-Shop-Vehicle-Accessories.avif';
+import cap from '../media/Mega-Menu-Shop-Apparel.avif';
+import back from '../media/Mega-Menu-Shop-Lifestyle.avif';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
   const [isPanelOpen, setIsPanelOpen] = useState(false);
+  const [isPanel2Open, setIsPanel2Open] = useState(false);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -32,6 +41,23 @@ const Header = () => {
     setIsPanelOpen(false);
   };
 
+  const handleMouseEnter2 = () => {
+    setIsPanel2Open(true);
+  };
+
+  const handleMouseLeave2 = () => {
+    setIsPanel2Open(false);
+  };
+
+  const handleMouseEnterAny = () => {
+    setIsPanelOpen(true);
+  };
+
+  const handleMouseLeaveAny = () => {
+    setIsPanelOpen(false);
+    setIsPanel2Open(false);
+  };
+
   useEffect(() => {
     const handleResize = () => {
       setIsDesktop(window.innerWidth >= 768);
@@ -42,8 +68,27 @@ const Header = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (!isPanelOpen) {
+      const timer = setTimeout(() => {
+        if (!isPanelOpen) setIsPanelOpen(false);
+      }, 200);
+      return () => clearTimeout(timer);
+    }
+  }, [isPanelOpen]);
+  
+  useEffect(() => {
+    if (!isPanel2Open) {
+      const timer = setTimeout(() => {
+        if (!isPanel2Open) setIsPanel2Open(false);
+      }, 200);
+      return () => clearTimeout(timer);
+    }
+  }, [isPanel2Open]);
+  
+
   return (
-    <header className={isPanelOpen ? 'white-background' : ''}>
+    <header className={(isPanelOpen || isPanel2Open) ? 'white-background' : ''}>      
       <nav>
         <a href="logo" className="logo">
           <img src={logo} alt="Tesla Logo" />
@@ -51,9 +96,9 @@ const Header = () => {
         {isDesktop ? (
           <>
             <div className="desktop-menu">
-              <button className="desktop-button" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>Vehículos</button>
-              {isPanelOpen && (
-                <div className="panel-blanco" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+            <button className="desktop-button" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>Vehículos</button>
+            {isPanelOpen && (
+                <div className="panel-blanco" onMouseEnter={handleMouseEnterAny} onMouseLeave={handleMouseLeaveAny}>
                   <div className="panel-content">
                     <div className='leftPanel'>
                       <div className='car-button'>
@@ -127,38 +172,142 @@ const Header = () => {
                   </div>
                 </div>
               )}
-              <button className="desktop-button" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>Energía</button>
-              <div className="panel-blanco">
-                <div className="panel-content">
-                  <button className="panel-button">Sub opción 1</button>
-                  <button className="panel-button">Sub opción 2</button>
-                  <button className="panel-button">Sub opción 3</button>
+              <button className="desktop-button" onMouseEnter={handleMouseEnter2} onMouseLeave={handleMouseLeave2}>Energía</button>
+              {isPanel2Open && (
+                <div className="panel2" onMouseEnter={handleMouseEnterAny} onMouseLeave={handleMouseLeaveAny}>
+                  <div className="panel-content">
+                    <div className='leftPanel2'>
+                      <div className='imageButton'>
+                        <button className="panel-button">
+                          <img src={powerwall} alt='powerwall'/>
+                        </button>
+                        <p>Powerwall</p>
+                        <div className='abuttons'>
+                          <a href='#'>Saber más</a>
+                        </div>
+                      </div>
+                      <div className='imageButton'>
+                        <button className="panel-button">
+                          <img src={megapack} alt='megapack'/>
+                        </button>
+                        <p>Megapack</p>
+                        <div className='abuttons'>
+                          <a href='#'>Saber más</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div className='vline2'></div>
+                    <div className='rightPanel'>
+                      <a href='#'>Soporte</a>
+                      <a href='#'>Sea un socio de Tesla</a>
+                      <a href='#'>Historias de clientes</a>
+                      <a href='#'>Utilities</a>
+                      <a href='#'>Comercial</a>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <button className="desktop-button" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>Carga</button>
-              <div className="panel-blanco">
-                <div className="panel-content">
-                  <button className="panel-button">Sub opción 1</button>
-                  <button className="panel-button">Sub opción 2</button>
-                  <button className="panel-button">Sub opción 3</button>
+              )}
+              <button className="desktop-button" onMouseEnter={handleMouseEnter2} onMouseLeave={handleMouseLeave2}>Carga</button>
+              {isPanel2Open && (
+                <div className="panel2" onMouseEnter={handleMouseEnterAny} onMouseLeave={handleMouseLeaveAny}>
+                  <div className="panel-content">
+                    <div className='leftPanel2'>
+                      <div className='imageButton'>
+                        <button className="panel-button">
+                          <img src={charge} alt='charge'/>
+                        </button>
+                        <p>Carga</p>
+                        <div className='abuttons'>
+                          <a href='#'>Saber más</a>
+                        </div>
+                      </div>
+                      <div className='imageButton'>
+                        <button className="panel-button">
+                          <img src={homeCharge} alt='homeCharge'/>
+                        </button>
+                        <p>Megapack</p>
+                        <div className='abuttons'>
+                          <a href='#'>Saber más</a>
+                          <a href='#'>Tienda</a>
+                        </div>
+                      </div>
+                      <div className='imageButton'>
+                        <button className="panel-button">
+                          <img src={highCharge} alt='highcharge'/>
+                        </button>
+                        <p>Supercarga</p>
+                        <div className='abuttons'>
+                          <a href='#'>Saber más</a>
+                          <a href='#'>Buscar</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div className='vline2'></div>
+                    <div className='rightPanel'>
+                      <a href='#'>Votación de Supercargador</a>
+                      <a href='#'>Instale un Supercargador</a>
+                      <a href='#'>Instale Wall Connectors</a>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <button className="desktop-button" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>Descubrir</button>
-              <div className="panel-blanco">
-                <div className="panel-content">
-                  <button className="panel-button">Sub opción 1</button>
-                  <button className="panel-button">Sub opción 2</button>
-                  <button className="panel-button">Sub opción 3</button>
+              )}
+              <button className="desktop-button" onMouseEnter={handleMouseEnter2} onMouseLeave={handleMouseLeave2}>Descubrir</button>
+              {isPanel2Open && (
+                <div className="panel2" onMouseEnter={handleMouseEnterAny} onMouseLeave={handleMouseLeaveAny}>
+                  <div className="panel-content">
+                    <div className='panela'>
+                      <p>Recursos</p>
+                      <a href='#'>Prueba de conducción</a>
+                      <a href='#'>Historias de clientes</a>
+                      <a href='#'>Eventos</a>
+                      <a href='#'>Video guías</a>
+                    </div>
+                    <div className='panela'>
+                      <p>Servicios de ubicación</p>
+                      <a href='#'>Dónde estamos</a>
+                      <a href='#'>Encuentre un instalador certificado</a>
+                      <a href='#'>Buscar un taller de carrocería</a>
+                    </div>
+                    <div className='panela'>
+                      <p>Persona Jurídica (Empresa)</p>
+                      <a href='#'>Acerca de</a>
+                      <a href='#'>Empleo</a>
+                      <a href='#'>Relaciones con los inversores</a>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <button className="desktop-button" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>Tienda</button>
-              <div className="panel-blanco">
-                <div className="panel-content">
-                  <button className="panel-button">Sub opción 1</button>
-                  <button className="panel-button">Sub opción 2</button>
-                  <button className="panel-button">Sub opción 3</button>
+              )}
+              <button className="desktop-button" onMouseEnter={handleMouseEnter2} onMouseLeave={handleMouseLeave2}>Tienda</button>
+              {isPanel2Open && (
+                <div className="panel2" onMouseEnter={handleMouseEnterAny} onMouseLeave={handleMouseLeaveAny}>
+                  <div className="panel-content">
+                    <div className='imageButton'>
+                      <button className="panel-button">
+                        <img src={homeCharge} alt='homeCharge'/>
+                      </button>
+                      <p>Carga</p>
+                    </div>
+                    <div className='imageButton'>
+                      <button className="panel-button">
+                        <img src={weel} alt='weel'/>
+                      </button>
+                      <p>Accesorios para el vehículo</p>
+                    </div>
+                    <div className='imageButton'>
+                      <button className="panel-button">
+                        <img src={cap} alt='cap'/>
+                      </button>
+                      <p>Ropa</p>
+                    </div>
+                    <div className='imageButton'>
+                      <button className="panel-button">
+                        <img src={back} alt='back'/>
+                      </button>
+                      <p>Estilo de vida</p>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
             <div className="logos">
               <button className="imgButton"><img src={question} alt='informacion'/></button>

@@ -27,7 +27,7 @@ import accessoriesDesktop from './media/Homepage-Accessories-Desktop-EMEA.avif';
 
 function App() {
   const [isDesktop, setIsDesktop] = useState(window.innerWidth > 724);
-
+  
   useEffect(() => {
     const handleResize = () => {
       setIsDesktop(window.innerWidth > 768);
