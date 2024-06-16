@@ -60,7 +60,7 @@ const Header = () => {
         {isDesktop ? (
           <>
             <div className="desktop-menu">
-            <button className="desktop-button" onMouseEnter={() => handleMouseEnter('vehicles')} onMouseLeave={handleMouseLeave}>Vehículos</button>
+            <button className="desktop-button" onMouseEnter={() => handleMouseEnter('vehicles')}>Vehículos</button>
             {activePanel === 'vehicles' && (
                 <div className="panel-blanco" onMouseLeave={handleMouseLeave}>
                   <div className="panel-content">
@@ -136,7 +136,7 @@ const Header = () => {
                   </div>
                 </div>
               )}
-              <button className="desktop-button" onMouseEnter={() => handleMouseEnter('energy')} onMouseLeave={handleMouseLeave}>Energía</button>
+              <button className="desktop-button" onMouseEnter={() => handleMouseEnter('energy')}>Energía</button>
               {activePanel ==='energy' && (
                 <div className="panel2" onMouseLeave={handleMouseLeave}>
                   <div className="panel-content">
@@ -171,7 +171,7 @@ const Header = () => {
                   </div>
                 </div>
               )}
-              <button className="desktop-button" onMouseEnter={() => handleMouseEnter('charge')} onMouseLeave={handleMouseLeave}>Carga</button>
+              <button className="desktop-button" onMouseEnter={() => handleMouseEnter('charge')}>Carga</button>
 
               {activePanel === 'charge' && (
                 <div className="panel2" onMouseLeave={handleMouseLeave}>
@@ -216,7 +216,7 @@ const Header = () => {
                   </div>
                 </div>
               )}
-              <button className="desktop-button" onMouseEnter={() => handleMouseEnter('find')} onMouseLeave={handleMouseLeave}>Descubrir</button>
+              <button className="desktop-button" onMouseEnter={() => handleMouseEnter('find')}>Descubrir</button>
               {activePanel === 'find' && (
                 <div className="panel2" onMouseLeave={handleMouseLeave}>
                   <div className="panel-content">
@@ -242,7 +242,7 @@ const Header = () => {
                   </div>
                 </div>
               )}
-              <button className="desktop-button" onMouseEnter={() => handleMouseEnter('shop')} onMouseLeave={handleMouseLeave}>Tienda</button>
+              <button className="desktop-button" onMouseEnter={() => handleMouseEnter('shop')}>Tienda</button>
               {activePanel === 'shop' && (
                 <div className="panel2" onMouseLeave={handleMouseLeave}>
                   <div className="panel-content">
