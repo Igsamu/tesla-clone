@@ -84,17 +84,15 @@ nav {
 .panel-blanco, .panel2 {
   position: absolute;
   top: 60px;
-  left: 0;
-  right: 0;
   width: 100%;
-  height: 0;
   background-color: white;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 999;
-  transition: height 0.5s ease-out;
+  height: 0;
+  transition: height 0.5s ease;
 }
 
 /* Mostrar el panel cuando se activa */
@@ -195,11 +193,13 @@ nav {
   color: #000;
   font-size: 0.8em;
   text-decoration: none;
-  transition: text-decoration 0.5s ease-out;
+  font-weight: none;
+  transition: text-decoration 0.3s ease, font-weight 0.3s ease;
 }
 
 .rightPanel a:hover {
   text-decoration: underline;
+  font-weight: bold;
 }
 
 .panel-button {
@@ -236,12 +236,18 @@ header.white-background {
   color: #B9B9B9;
 }
 
-.panela a{
+.panela a {
   margin-bottom: 10px;
   color: #000;
   font-size: 0.8rem;
+  font-weight: normal;
   text-decoration: none;
-  transition: text-decoration 0.5s ease-out;
+  transition: text-decoration 0.3s ease, font-weight 0.3s ease;
+}
+
+.panela a:hover {
+  text-decoration: underline;
+  font-weight: bold;
 }
 
 /* Estilos para dispositivos móviles */
