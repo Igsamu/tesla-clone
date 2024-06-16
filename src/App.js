@@ -49,6 +49,8 @@ function App() {
             { className: 'order', text: 'Encargar' },
             { className: 'test-drive', text: 'Prueba de conducción' },
           ]}
+          link={{ href: 'https://example.com', text: 'Disponible con Moves III', className: 'link-class' }}
+          linkColor="black"
         />
         <HeroSection
           title="Model 3"
@@ -57,6 +59,8 @@ function App() {
             { className: 'order', text: 'Encargar' },
             { className: 'test-drive', text: 'Prueba de conducción' },
           ]}
+          link={{ href: 'https://example.com', text: 'Disponible con Moves III', className: 'link-class' }}
+          linkColor="white"
         />
         <HeroSection
           title="Model S"

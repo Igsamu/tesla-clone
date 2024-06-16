@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import './HeroSection.css';
 
-const HeroSection = ({ title, subtitle, imgSrc, videoSrc, buttons }) => {
+const HeroSection = ({ title, subtitle, imgSrc, videoSrc, buttons, link, linkColor }) => {
   const videoRef = useRef(null);
 
   useEffect(() => {
@@ -33,9 +33,11 @@ const HeroSection = ({ title, subtitle, imgSrc, videoSrc, buttons }) => {
           <button key={index} className={button.className}>{button.text}</button>
         ))}
       </div>
-      <div className='moveslink'>
-        
-      </div>
+        {link && (
+          <div className={`link ${linkColor}`}>
+            <a href={link.href} className={link.className}>{link.text}</a>
+          </div>
+        )}
     </section>
   );
 };

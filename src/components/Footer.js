@@ -1,13 +1,16 @@
-// src/components/Footer.js
-import React from 'react';
 import './Footer.css';
 
 const Footer = () => {
   return (
     <footer>
-      <p>Tesla &copy; 2024</p>
-      <p>Privacidad y legal</p>
-      <p>Noticias</p>
+      <a href='#'>Tesla &copy; 2024</a>
+      <a href='#'>Privacidad y legal</a>
+      <a href='#'>Noticias</a>
+      <div className='additional-links'>
+        <a href='#'>Contacto</a>
+        <a href='#'>Seguir informado</a>
+        <a href='#'>Localización de tiendas</a>
+      </div>
     </footer>
   );
 };

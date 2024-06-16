@@ -1,13 +1,36 @@
 footer {
-    background-color: #000;
-    display: flex;
-    flex-direction: column;
-    color: white;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+footer a {
+  margin: 5px;
+  font-size: 0.6rem;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+}
+
+.additional-links {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  footer {
+    height: 50px;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
     align-items: center;
   }
-  
-  footer a {
-    margin: 5px;
-    font-size: 0.8em;
+
+  .additional-links {
+    display: flex;
   }
-  
+
+  .additional-links a {
+    margin: 0 10px;
+  }
+}

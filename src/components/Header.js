@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, act } from 'react';
 import './Header.css';
 import logo from '../media/Logo.webp';
 import sitioWeb from '../media/sitio-web.png';
@@ -26,36 +26,18 @@ import back from '../media/Mega-Menu-Shop-Lifestyle.avif';
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
-  const [isPanelOpen, setIsPanelOpen] = useState(false);
-  const [isPanel2Open, setIsPanel2Open] = useState(false);
+  const [activePanel, setActivePanel] = useState(null);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
-  const handleMouseEnter = () => {
-    setIsPanelOpen(true);
+  const handleMouseEnter = (panel) => {
+    setActivePanel(panel);
   };
 
   const handleMouseLeave = () => {
-    setIsPanelOpen(false);
-  };
-
-  const handleMouseEnter2 = () => {
-    setIsPanel2Open(true);
-  };
-
-  const handleMouseLeave2 = () => {
-    setIsPanel2Open(false);
-  };
-
-  const handleMouseEnterAny = () => {
-    setIsPanelOpen(true);
-  };
-
-  const handleMouseLeaveAny = () => {
-    setIsPanelOpen(false);
-    setIsPanel2Open(false);
+    setActivePanel(null);
   };
 
   useEffect(() => {
@@ -67,28 +49,10 @@ const Header = () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-
-  useEffect(() => {
-    if (!isPanelOpen) {
-      const timer = setTimeout(() => {
-        if (!isPanelOpen) setIsPanelOpen(false);
-      }, 200);
-      return () => clearTimeout(timer);
-    }
-  }, [isPanelOpen]);
-  
-  useEffect(() => {
-    if (!isPanel2Open) {
-      const timer = setTimeout(() => {
-        if (!isPanel2Open) setIsPanel2Open(false);
-      }, 200);
-      return () => clearTimeout(timer);
-    }
-  }, [isPanel2Open]);
   
 
   return (
-    <header className={(isPanelOpen || isPanel2Open) ? 'white-background' : ''}>      
+    <header className={activePanel ? 'white-background' : ''}>      
       <nav>
         <a href="logo" className="logo">
           <img src={logo} alt="Tesla Logo" />
@@ -96,9 +60,9 @@ const Header = () => {
         {isDesktop ? (
           <>
             <div className="desktop-menu">
-            <button className="desktop-button" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>Vehículos</button>
-            {isPanelOpen && (
-                <div className="panel-blanco" onMouseEnter={handleMouseEnterAny} onMouseLeave={handleMouseLeaveAny}>
+            <button className="desktop-button" onMouseEnter={() => handleMouseEnter('vehicles')} onMouseLeave={handleMouseLeave}>Vehículos</button>
+            {activePanel === 'vehicles' && (
+                <div className="panel-blanco" onMouseLeave={handleMouseLeave}>
                   <div className="panel-content">
                     <div className='leftPanel'>
                       <div className='car-button'>
@@ -172,9 +136,9 @@ const Header = () => {
                   </div>
                 </div>
               )}
-              <button className="desktop-button" onMouseEnter={handleMouseEnter2} onMouseLeave={handleMouseLeave2}>Energía</button>
-              {isPanel2Open && (
-                <div className="panel2" onMouseEnter={handleMouseEnterAny} onMouseLeave={handleMouseLeaveAny}>
+              <button className="desktop-button" onMouseEnter={() => handleMouseEnter('energy')} onMouseLeave={handleMouseLeave}>Energía</button>
+              {activePanel ==='energy' && (
+                <div className="panel2" onMouseLeave={handleMouseLeave}>
                   <div className="panel-content">
                     <div className='leftPanel2'>
                       <div className='imageButton'>
@@ -207,9 +171,10 @@ const Header = () => {
                   </div>
                 </div>
               )}
-              <button className="desktop-button" onMouseEnter={handleMouseEnter2} onMouseLeave={handleMouseLeave2}>Carga</button>
-              {isPanel2Open && (
-                <div className="panel2" onMouseEnter={handleMouseEnterAny} onMouseLeave={handleMouseLeaveAny}>
+              <button className="desktop-button" onMouseEnter={() => handleMouseEnter('charge')} onMouseLeave={handleMouseLeave}>Carga</button>
+
+              {activePanel === 'charge' && (
+                <div className="panel2" onMouseLeave={handleMouseLeave}>
                   <div className="panel-content">
                     <div className='leftPanel2'>
                       <div className='imageButton'>
@@ -251,9 +216,9 @@ const Header = () => {
                   </div>
                 </div>
               )}
-              <button className="desktop-button" onMouseEnter={handleMouseEnter2} onMouseLeave={handleMouseLeave2}>Descubrir</button>
-              {isPanel2Open && (
-                <div className="panel2" onMouseEnter={handleMouseEnterAny} onMouseLeave={handleMouseLeaveAny}>
+              <button className="desktop-button" onMouseEnter={() => handleMouseEnter('find')} onMouseLeave={handleMouseLeave}>Descubrir</button>
+              {activePanel === 'find' && (
+                <div className="panel2" onMouseLeave={handleMouseLeave}>
                   <div className="panel-content">
                     <div className='panela'>
                       <p>Recursos</p>
@@ -277,9 +242,9 @@ const Header = () => {
                   </div>
                 </div>
               )}
-              <button className="desktop-button" onMouseEnter={handleMouseEnter2} onMouseLeave={handleMouseLeave2}>Tienda</button>
-              {isPanel2Open && (
-                <div className="panel2" onMouseEnter={handleMouseEnterAny} onMouseLeave={handleMouseLeaveAny}>
+              <button className="desktop-button" onMouseEnter={() => handleMouseEnter('shop')} onMouseLeave={handleMouseLeave}>Tienda</button>
+              {activePanel === 'shop' && (
+                <div className="panel2" onMouseLeave={handleMouseLeave}>
                   <div className="panel-content">
                     <div className='imageButton'>
                       <button className="panel-button">
