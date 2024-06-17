@@ -1,4 +1,4 @@
-import React, { useState, useEffect, act } from 'react';
+import React, { useState, useEffect} from 'react';
 import './Header.css';
 import logo from '../media/Logo.webp';
 import sitioWeb from '../media/sitio-web.png';
@@ -53,16 +53,16 @@ const Header = () => {
 
   return (
     <header className={activePanel ? 'white-background' : ''}>      
-      <nav>
+      <nav onMouseLeave={handleMouseLeave}>
         <a href="logo" className="logo">
           <img src={logo} alt="Tesla Logo" />
         </a>
         {isDesktop ? (
           <>
             <div className="desktop-menu">
-            <button className="desktop-button" onMouseEnter={() => handleMouseEnter('vehicles')}>Vehículos</button>
+            <button className="desktop-button" onMouseEnter={() => handleMouseEnter('vehicles')} onMouseLeave={handleMouseLeave}>Vehículos</button>
             {activePanel === 'vehicles' && (
-                <div className="panel-blanco" onMouseLeave={handleMouseLeave}>
+                <div className="panel-blanco" onMouseEnter={() => handleMouseEnter('vehicles')} onMouseLeave={handleMouseLeave}>
                   <div className="panel-content">
                     <div className='leftPanel'>
                       <div className='car-button'>
@@ -136,9 +136,9 @@ const Header = () => {
                   </div>
                 </div>
               )}
-              <button className="desktop-button" onMouseEnter={() => handleMouseEnter('energy')}>Energía</button>
+              <button className="desktop-button" onMouseEnter={() => handleMouseEnter('energy')} onMouseLeave={handleMouseLeave}>Energía</button>
               {activePanel ==='energy' && (
-                <div className="panel2" onMouseLeave={handleMouseLeave}>
+                <div className="panel2" onMouseEnter={() => handleMouseEnter('energy')} onMouseLeave={handleMouseLeave}>
                   <div className="panel-content">
                     <div className='leftPanel2'>
                       <div className='imageButton'>
@@ -171,10 +171,10 @@ const Header = () => {
                   </div>
                 </div>
               )}
-              <button className="desktop-button" onMouseEnter={() => handleMouseEnter('charge')}>Carga</button>
+              <button className="desktop-button" onMouseEnter={() => handleMouseEnter('charge')} onMouseLeave={handleMouseLeave}>Carga</button>
 
               {activePanel === 'charge' && (
-                <div className="panel2" onMouseLeave={handleMouseLeave}>
+                <div className="panel2" onMouseEnter={() => handleMouseEnter('charge')} onMouseLeave={handleMouseLeave}>
                   <div className="panel-content">
                     <div className='leftPanel2'>
                       <div className='imageButton'>
@@ -216,9 +216,9 @@ const Header = () => {
                   </div>
                 </div>
               )}
-              <button className="desktop-button" onMouseEnter={() => handleMouseEnter('find')}>Descubrir</button>
+              <button className="desktop-button" onMouseEnter={() => handleMouseEnter('find')} onMouseLeave={handleMouseLeave}>Descubrir</button>
               {activePanel === 'find' && (
-                <div className="panel2"  onMouseLeave={handleMouseLeave}>
+                <div className="panel2" onMouseEnter={() => handleMouseEnter('find')} onMouseLeave={handleMouseLeave}>
                   <div className="panel-content">
                     <div className='panela'>
                       <p>Recursos</p>
@@ -242,9 +242,9 @@ const Header = () => {
                   </div>
                 </div>
               )}
-              <button className="desktop-button" onMouseEnter={() => handleMouseEnter('shop')} >Tienda</button>
+              <button className="desktop-button" onMouseEnter={() => handleMouseEnter('shop')} onMouseLeave={handleMouseLeave} >Tienda</button>
               {activePanel === 'shop' && (
-                <div className="panel2" onMouseLeave={handleMouseLeave}>
+                <div className="panel2" onMouseEnter={() => handleMouseEnter('shop')} onMouseLeave={handleMouseLeave}>
                   <div className="panel-content">
                     <div className='imageButton'>
                       <button className="panel-button">

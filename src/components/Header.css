@@ -83,7 +83,7 @@ nav {
 /* Estilo para el panel blanco */
 .panel-blanco, .panel2 {
   position: absolute;
-  top: 60px;
+  top: 55px;
   width: 100%;
   background-color: white;
   overflow: hidden;
