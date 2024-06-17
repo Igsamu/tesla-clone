@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import { useState, useEffect} from 'react';
 import './Header.css';
 import logo from '../media/Logo.webp';
 import sitioWeb from '../media/sitio-web.png';
@@ -22,6 +22,21 @@ import highCharge from '../media/Mega-Menu-Charging-Supercharging-EMEA.avif';
 import weel from '../media/Mega-Menu-Shop-Vehicle-Accessories.avif';
 import cap from '../media/Mega-Menu-Shop-Apparel.avif';
 import back from '../media/Mega-Menu-Shop-Lifestyle.avif';
+
+import charging from '../pages/charging.js';
+import choose from '../pages/choose.js';
+import cibertruck from '../pages/cybertruck.js';
+import megapackpage from '../pages/megapack.js';
+import model3page from '../pages/model3.js';
+import modelspage from '../pages/models.js';
+import modelypage from '../pages/modely.js';
+import modelxpage from '../pages/modely.js';
+import powerwallpage from '../pages/powerwall.js';
+import supercharge from '../pages/supercharge.js';
+import support from '../pages/support.js';
+import userpage from '../pages/user.js';
+import wallconnector from '../pages/wallconnector.js';
+import order from '../pages/order.js';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
